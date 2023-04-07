@@ -22,6 +22,6 @@ spec:
         - containerPort: 8080
         env:
           - name: REDIS-HOST
-            value: "http://db.redis-cluster"
+            value: "redis-cluster.db"
           - name: REDIS-PORT
             value: "6379"
