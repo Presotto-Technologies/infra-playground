@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minio-client
+  namespace: app
+  annotations:
+    linkerd.io/inject: enabled
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: minio-client
+  template:
+    metadata:
+      labels:
+        app: minio-client
+    spec:
+      containers:
+      - image: bitnami/minio-client:latest
+        name: minio-client
+        ports:
+        - containerPort: 8080

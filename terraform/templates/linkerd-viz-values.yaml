@@ -1,0 +1,12 @@
+clusterDomain: cluster.local
+defaultLogLevel: ${debugLevel}
+
+prometheus:
+  enabled: true
+
+  globalConfig:
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    evaluation_interval: 10s
+
+#prometheusUrl: "prometheus-server.monitoring:9090"

@@ -1,0 +1,29 @@
+existingSecret: "${admin_existing_secret}"
+rootUser: ${rootUser_key}
+rootPassword: ${rootPassword_key}
+
+service:
+  annotations: 
+    linkerd.io/inject: "enabled"
+
+serviceAccount:
+  create: true
+  name: "minio"
+
+resources:
+  requests:
+    memory: 2Gi
+
+persistence:
+  size: 1Gi
+
+metrics:
+  serviceMonitor:
+    enabled: false
+
+  prometheusRule:
+    enabled: false
+    namespace: "monitoring"
+
+replicas: ${replicas}
+pools: ${pools}

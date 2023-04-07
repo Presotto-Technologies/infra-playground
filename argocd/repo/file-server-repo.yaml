@@ -1,0 +1,12 @@
+project: default
+source:
+  repoURL: 'https://github.com/robipresotto/swiftFileServer'
+  path: Scripts/argocd
+  targetRevision: main
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: app
+syncPolicy:
+  automated: {}
+  syncOptions:
+    - CreateNamespace=true

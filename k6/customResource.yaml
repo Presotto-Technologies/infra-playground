@@ -1,0 +1,14 @@
+apiVersion: k6.io/v1alpha1
+kind: K6
+metadata:
+  name: k6-tests
+spec:
+  parallelism: 4
+  script:
+    configMap:
+      name: health-test
+      file: test.js
+  runner:
+    env:
+    - name: TARGET_HOSTNAME
+      value: 

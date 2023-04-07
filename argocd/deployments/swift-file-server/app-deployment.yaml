@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swift-file-server-api
+  namespace: app
+  annotations:
+    linkerd.io/inject: enabled
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: swift-file-server-api
+  template:
+    metadata:
+      labels:
+        app: swift-file-server-api
+    spec:
+      containers:
+      - image: robipresotto/file-server:latest
+        name: swift-file-server-api
+        ports:
+        - containerPort: 8080

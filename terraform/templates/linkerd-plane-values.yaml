@@ -1,0 +1,7 @@
+controllerLogLevel: ${debugLevel}
+
+policyController:
+  logLevel: ${debugLevel}
+
+proxy:
+  logLevel: warn,linkerd=${debugLevel}
