@@ -20,3 +20,8 @@ spec:
         name: api-gateway
         ports:
         - containerPort: 8080
+        env:
+          - name: REDIS-HOST
+            value: "http://db.redis-cluster"
+          - name: REDIS-PORT
+            value: "6379"
