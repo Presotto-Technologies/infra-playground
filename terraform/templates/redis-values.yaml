@@ -14,8 +14,8 @@ serviceAccount:
 rbac:
   create: true
 
-# existingSecret:
-#   redis-cluster: "redis-password"
+usePassword: true
+password: ${redisPassword}
 
 tls:
   enabled: false

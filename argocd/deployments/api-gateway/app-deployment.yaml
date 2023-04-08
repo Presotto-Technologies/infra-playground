@@ -25,3 +25,8 @@ spec:
             value: "redis-cluster.db"
           - name: REDIS-PORT
             value: "6379"
+          - name: REDIS-PASS
+            valueFrom:
+              secretKeyRef:
+                name: redis-cluster-password
+                key: password

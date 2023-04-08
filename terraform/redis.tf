@@ -7,9 +7,10 @@ resource "helm_release" "redis-cluster" {
   
   values = [
     templatefile("${path.module}/templates/redis-values.yaml", {
-      certFilename: "${path.module}/templates/certificates/ca.crt"
-      certKeyFilename: "${path.module}/templates/certificates/ca.key"
-      certCAFilename: "${path.module}/templates/certificates/ca.crt"
+      certFilename = "${path.module}/templates/certificates/ca.crt"
+      certKeyFilename = "${path.module}/templates/certificates/ca.key"
+      certCAFilename = "${path.module}/templates/certificates/ca.crt"
+      redisPassword = "${random_password.redis-cluster.result}"
     })
   ]
 
@@ -17,4 +18,8 @@ resource "helm_release" "redis-cluster" {
     helm_release.prometheus-crds
   ]
 
+}
+
+resource "random_password" "redis-cluster" {
+  length = 24
 }
