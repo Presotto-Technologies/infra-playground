@@ -30,3 +30,5 @@ spec:
               secretKeyRef:
                 name: redis-cluster-password
                 key: password
+          - name: MONGO_DB-HOST
+            value: "mongodb-sharded.db"
