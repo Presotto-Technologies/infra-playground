@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openai
+  namespace: app
+  annotations:
+    linkerd.io/inject: enabled
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openai
+  template:
+    metadata:
+      labels:
+        app: openai
+    spec:
+      containers:
+      - image: robipresotto/openai:0.0.1
+        name: openai
+        ports:
+        - containerPort: 8080
+        env:
+          - name: openAI-token
+            valueFrom:
+              secretKeyRef:
+                name: openAI-token
+                key: token
+          - name: openAI-org
+            valueFrom:
+              secretKeyRef:
+                name: openAI-org
+                key: org
