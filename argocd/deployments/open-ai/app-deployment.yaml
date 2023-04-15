@@ -29,5 +29,5 @@ spec:
           - name: openAI-org
             valueFrom:
               secretKeyRef:
-                name: openai-org
+                name: openai-token
                 key: org
