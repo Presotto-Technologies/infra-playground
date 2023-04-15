@@ -27,7 +27,15 @@ resource "helm_release" "grafana" {
       admin_user_key = "admin-user"
       admin_password_key = "admin-password"
       prometheus_svc = "${helm_release.prometheus.name}-server"
+      influxdb_svc = "${helm_release.influxdb.name}"
+      influxdb_auth = "${random_password.influxdb-token.result}"
+      influxdb_org = "${local.influxOrg}"
       replicas = 1
     })
   ]
+
+  depends_on = [
+    helm_release.influxdb
+  ]
+
 }

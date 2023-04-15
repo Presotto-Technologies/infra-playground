@@ -460,6 +460,18 @@ datasources:
       url: http://${prometheus_svc}
       access: proxy
       isDefault: true
+    - name: InfluxDB
+      type: influxdb
+      url: http://${influxdb_svc}:8086
+      access: proxy
+      jsonData:
+        version: Flux
+        organization: ${influxdb_org}
+        defaultBucket: ${influxdb_org}
+        tlsSkipVerify: true
+      secureJsonData:
+        token: ${influxdb_auth}
+      isDefault: false
 
 ## Configure notifiers
 ## ref: http://docs.grafana.org/administration/provisioning/#alert-notification-channels

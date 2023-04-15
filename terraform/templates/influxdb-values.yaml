@@ -1,0 +1,76 @@
+auth:
+  enabled: true
+  
+  admin:
+    username: admin
+    password: ${admin-password}
+    token: ${admin-token}
+    org: ${organization}
+    bucket: ${organization}
+
+  createUserToken: true
+
+  readUser:
+    username: user
+    password: ${user-password}
+
+  writeUser:
+    username: user
+    password: ${user-password}
+
+influxdb:
+  updateStrategy:
+    type: RollingUpdate
+  
+  resources:
+    limits: {}
+    requests: {}
+
+  service:
+    annotations: 
+      linkerd.io/inject: "enabled"
+
+ingress:
+  enabled: false
+  tls: false
+
+metrics:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+  
+persistence:
+  enabled: true
+  accessModes:
+    - ReadWriteOnce
+  size: 8Gi
+
+serviceAccount:
+  create: true
+
+psp:
+  create: false
+
+rbac:
+  create: false
+
+volumePermissions:
+  enabled: true
+
+backup:
+  enabled: false
+  directory: "/backups"
+  retentionDays: 10
+
+  cronjob:
+    schedule: "0 2 * * *"
+    historyLimit: 1
+
+  uploadProviders:
+    aws:
+      enabled: false
+      accessKeyID: ""
+      secretAccessKey: ""
+      region: "us-east-1"
+      existingSecret: ""
+      bucketName: "s3://bucket/influxdb"
