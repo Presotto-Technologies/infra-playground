@@ -24,10 +24,10 @@ spec:
           - name: openAI-token
             valueFrom:
               secretKeyRef:
-                name: openAI-token
+                name: openai-token
                 key: token
           - name: openAI-org
             valueFrom:
               secretKeyRef:
-                name: openAI-org
+                name: openai-org
                 key: org
