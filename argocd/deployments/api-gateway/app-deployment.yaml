@@ -22,7 +22,7 @@ spec:
         - containerPort: 8080
         env:
           - name: ELASTIC_SEARCH-HOST
-            value: "elasticsearch-master.db"
+            value: "http://elasticsearch-master.db"
           - name: ELASTIC_SEARCH-PASS
             valueFrom:
               secretKeyRef:
