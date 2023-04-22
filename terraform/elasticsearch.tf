@@ -7,8 +7,12 @@ resource "helm_release" "elasticsearch" {
   
   values = [
     templatefile("${path.module}/templates/elastic-values.yaml", {
-      // not definied yet
+      password = "${random_password.elasticsearch_pass}"
     })
   ]
 
+}
+
+resource "random_password" "elastic-search-password" {
+  length = 24
 }
