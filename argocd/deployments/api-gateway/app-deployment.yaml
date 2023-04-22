@@ -16,11 +16,13 @@ spec:
         app: api-gateway
     spec:
       containers:
-      - image: robipresotto/api-gateway:0.0.1
+      - image: robipresotto/api-gateway:0.0.2
         name: api-gateway
         ports:
         - containerPort: 8080
         env:
+          - name: ELASTIC_SEARCH-HOST
+            value: "elasticsearch-master.db"
           - name: REDIS-HOST
             value: "redis-cluster.db"
           - name: REDIS-PORT
