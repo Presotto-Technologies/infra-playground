@@ -10,7 +10,7 @@ resources:
     memory: "512M"
   limits:
     cpu: "1000m"
-    memory: "512M"
+    memory: "2Gi"
 
 volumeClaimTemplate:
   accessModes: [ "ReadWriteOnce" ]

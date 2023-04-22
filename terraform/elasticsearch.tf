@@ -2,7 +2,7 @@ resource "helm_release" "elasticsearch" {
   chart = "elasticsearch"
   name = "elasticsearch"
   repository = "https://helm.elastic.co"
-  namespace = "db"
+  namespace = "monitoring"
   version = "8.5.1"
   
   values = [
