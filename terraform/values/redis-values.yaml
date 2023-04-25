@@ -11,6 +11,9 @@ networkPolicy:
 serviceAccount:
   create: true
 
+sentinel:
+  enabled: true
+
 rbac:
   create: true
 

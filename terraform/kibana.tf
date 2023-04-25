@@ -6,7 +6,7 @@ resource "helm_release" "kibana" {
   version = "8.5.1"
   
   values = [
-    templatefile("${path.module}/templates/kibana-values.yaml", {
+    templatefile("${path.module}/values/kibana-values.yaml", {
       // not definied yet
     })
   ]

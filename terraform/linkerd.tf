@@ -6,7 +6,7 @@ resource "helm_release" "linkerd-plane" {
   version = "1.12.1"
 
   values = [
-    templatefile("${path.module}/templates/linkerd-plane-values.yaml", {
+    templatefile("${path.module}/values/linkerd-plane-values.yaml", {
       debugLevel = "debug"
     })
   ]
@@ -49,7 +49,7 @@ resource "helm_release" "linkerd-viz" {
   version = "30.8.1"
 
   values = [
-    templatefile("${path.module}/templates/linkerd-viz-values.yaml", {
+    templatefile("${path.module}/values/linkerd-viz-values.yaml", {
       debugLevel = "debug"
     })
   ]
@@ -80,13 +80,13 @@ resource "helm_release" "linkerd-crds" {
 }
 
 data "local_sensitive_file" "identityTrustAnchorsPEM" {
-  filename = "${path.module}/templates/certificates/ca.crt"
+  filename = "${path.module}/values/certificates/ca.crt"
 }
 
 data "local_sensitive_file" "issuerCrtPEM" {
-  filename = "${path.module}/templates/certificates/issuer.crt"
+  filename = "${path.module}/values/certificates/issuer.crt"
 }
 
 data "local_sensitive_file" "IssuerKeyPEM" {
-  filename = "${path.module}/templates/certificates/issuer.key"
+  filename = "${path.module}/values/certificates/issuer.key"
 }
