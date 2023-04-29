@@ -1,19 +1,3 @@
-resource "kubernetes_secret" "grafana" {
-  metadata {
-    name = "grafana"
-    namespace = "monitoring"
-  }
-
-  data = {
-    admin-user = "admin"
-    admin-password = random_password.grafana.result
-  }
-}
-
-resource "random_password" "grafana" {
-  length = 24
-}
-
 resource "helm_release" "grafana" {
   chart = "grafana"
   name = "grafana"
@@ -22,7 +6,7 @@ resource "helm_release" "grafana" {
   version = "6.51.5"
 
   values = [
-    templatefile("${path.module}/values/grafana-values.yaml", {
+    templatefile("${path.module}/src/monitoring/values/grafana-values.yaml", {
       admin_existing_secret = kubernetes_secret.grafana.metadata[0].name
       admin_user_key = "admin-user"
       admin_password_key = "admin-password"

@@ -6,7 +6,7 @@ resource "helm_release" "linkerd-plane" {
   version = "1.12.1"
 
   values = [
-    templatefile("${path.module}/values/linkerd-plane-values.yaml", {
+    templatefile("${path.module}/src/linkerd/values/linkerd-plane-values.yaml", {
       debugLevel = "debug"
     })
   ]
@@ -39,44 +39,6 @@ resource "helm_release" "linkerd-plane" {
   depends_on = [
     helm_release.linkerd-crds
   ]
-}
-
-resource "helm_release" "linkerd-viz" {
-  name = "linkerd-viz"
-  chart = "linkerd-viz"
-  repository = "https://helm.linkerd.io/stable"
-  namespace = "linkerd"
-  version = "30.8.1"
-
-  values = [
-    templatefile("${path.module}/values/linkerd-viz-values.yaml", {
-      debugLevel = "debug"
-    })
-  ]
-
-  depends_on = [
-    helm_release.linkerd-plane
-  ]
-}
-
-# resource "helm_release" "linkerd-multi-cluster" {
-#   chart            = "linkerd-multicluster"
-#   name            = "linkerd-multicluster"
-#   repository    = "https://helm.linkerd.io/stable"
-#   namespace  = "linkerd"
-#   version         = "30.2.6"
-  
-#   depends_on = [
-#     helm_release.linkerd-plane
-#   ]
-# }
-
-resource "helm_release" "linkerd-crds" {
-  chart = "linkerd-crds"
-  name = "linkerd-crds"
-  repository = "https://helm.linkerd.io/stable"
-  namespace = "linkerd"
-  version = "1.6.0"
 }
 
 data "local_sensitive_file" "identityTrustAnchorsPEM" {

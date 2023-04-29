@@ -6,7 +6,7 @@ resource "helm_release" "mongodb-sharded" {
   version = "6.3.3"
   
   values = [
-    templatefile("${path.module}/values/mongodb-values.yaml", {
+    templatefile("${path.module}/src/db/values/mongodb-values.yaml", {
       // not defined yet
     })
   ]
