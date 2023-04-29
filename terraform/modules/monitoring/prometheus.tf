@@ -6,7 +6,7 @@ resource "helm_release" "prometheus" {
   version = "20.0.2"
 
   values = [
-    templatefile("${path.module}/src/monitoring/values/prometheus-values.yaml", {
+    templatefile("${path.module}/values/prometheus-values.yaml", {
       persistentVolume = true
     })
   ]

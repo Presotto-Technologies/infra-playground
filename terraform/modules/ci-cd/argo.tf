@@ -7,7 +7,7 @@ resource "helm_release" "argo-cd" {
   version = "5.27.0"
 
   values = [
-    templatefile("${path.module}/src/ci-cd/values/argo-values.yaml", {
+    templatefile("${path.module}/values/argo-values.yaml", {
       replicas = 1
     })
   ]

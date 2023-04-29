@@ -7,7 +7,7 @@ resource "helm_release" "influxdb" {
   version = "5.4.21"
   
   values = [
-    templatefile("${path.module}/src/monitoring/values/influxdb-values.yaml", {
+    templatefile("${path.module}/values/influxdb-values.yaml", {
       admin-password = "${random_password.influxdb-admin.result}"
       user-password = "${random_password.influxdb-user.result}"
       admin-token = "${random_password.influxdb-token.result}"

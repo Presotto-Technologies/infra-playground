@@ -6,7 +6,7 @@ resource "helm_release" "linkerd-viz" {
   version = "30.8.1"
 
   values = [
-    templatefile("${path.module}/src/linkerd/values/linkerd-viz-values.yaml", {
+    templatefile("${path.module}/values/linkerd-viz-values.yaml", {
       debugLevel = "debug"
     })
   ]

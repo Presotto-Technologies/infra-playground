@@ -4,7 +4,7 @@ resource "helm_release" "garage" {
   namespace = "storage"
   
   values = [
-    templatefile("${path.module}/src/storage/values/garage-values.yaml", {
+    templatefile("${path.module}/values/garage-values.yaml", {
       password = random_password.garage.result
       replicas = 3
     })

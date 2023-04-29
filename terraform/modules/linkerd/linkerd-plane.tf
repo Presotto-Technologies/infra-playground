@@ -6,7 +6,7 @@ resource "helm_release" "linkerd-plane" {
   version = "1.12.1"
 
   values = [
-    templatefile("${path.module}/src/linkerd/values/linkerd-plane-values.yaml", {
+    templatefile("${path.module}/values/linkerd-plane-values.yaml", {
       debugLevel = "debug"
     })
   ]
@@ -42,13 +42,13 @@ resource "helm_release" "linkerd-plane" {
 }
 
 data "local_sensitive_file" "identityTrustAnchorsPEM" {
-  filename = "${path.module}/values/certificates/ca.crt"
+  filename = "${path.module}/certificates/ca.crt"
 }
 
 data "local_sensitive_file" "issuerCrtPEM" {
-  filename = "${path.module}/values/certificates/issuer.crt"
+  filename = "${path.module}/certificates/issuer.crt"
 }
 
 data "local_sensitive_file" "IssuerKeyPEM" {
-  filename = "${path.module}/values/certificates/issuer.key"
+  filename = "${path.module}/certificates/issuer.key"
 }
