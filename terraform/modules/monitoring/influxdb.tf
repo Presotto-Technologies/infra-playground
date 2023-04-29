@@ -14,6 +14,7 @@ resource "helm_release" "influxdb" {
       organization = "${local.influxOrg}"
     })
   ]
+
 }
 
 resource "random_password" "influxdb-admin" {
@@ -25,5 +26,5 @@ resource "random_password" "influxdb-user" {
 }
 
 resource "random_password" "influxdb-token" {
-  length = 128
+  length = 64
 }

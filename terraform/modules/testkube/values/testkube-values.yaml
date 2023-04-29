@@ -11,11 +11,15 @@ testkube-api:
     accessKeyId: ${accessKeyId}
     accessKey: ${accessKey}
 
+  logs: 
+    storage: "minio"
+    bucket: "testkube-logs"
+    
   service:
     annotations: 
       linkerd.io/inject: "enabled"
 
   prometheus:
-    enabled: false
+    enabled: true
 
 telemetryEnabled: ${telemetry}
