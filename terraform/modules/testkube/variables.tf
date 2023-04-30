@@ -1,11 +1,11 @@
-variable "garage_endpoint" {
+variable "s3_endpoint" {
   type = string
 }
 
-variable "garage_accessKey" {
+variable "s3_accessKey" {
   type = string
 }
 
-variable "garage_secret" {
+variable "s3_secretKey" {
   type = string
 }

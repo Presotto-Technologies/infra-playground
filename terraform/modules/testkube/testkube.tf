@@ -8,9 +8,9 @@ resource "helm_release" "testkube" {
   values = [
     templatefile("${path.module}/values/testkube-values.yaml", {
       telemetry = false
-      endpoint = var.garage_endpoint
-      accessKey = var.garage_accessKey
-      accessKeyId = var.garage_secret
+      endpoint = var.s3_endpoint
+      accessKey = var.s3_accessKey
+      accessKeyId = var.s3_secretKey
     })
   ]
 }

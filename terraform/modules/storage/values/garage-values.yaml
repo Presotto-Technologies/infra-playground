@@ -1,17 +1,8 @@
 garage:
   replicationMode: "2"
-  rpcSecret: ${password}
 
 deployment:
   replicaCount: ${replicas}
-
-persistence:
-  meta:
-    storageClass: "openebs-hostpath"
-    size: 100Mi
-  data:
-    storageClass: "openebs-hostpath"
-    size: 1Gi
 
 service:
   annotations: 
@@ -26,26 +17,4 @@ monitoring:
       namespace: monitoring
       interval: 15s
       scheme: http
-      tlsConfig: {}
       scrapeTimeout: 10s
-      relabelings: []
-  tracing:
-    sink: ""
-
-ingress:
-  s3:
-    api:
-      enabled: false
-      className: "public"
-      annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-prod"
-        nginx.ingress.kubernetes.io/proxy-body-size: 500m
-      hosts:
-        - host: s3-api.my-domain.com
-          paths:
-            - path: /
-              pathType: Prefix
-      tls:
-        - secretName: garage-ingress-cert
-          hosts:
-            - s3-api.my-domain.com
