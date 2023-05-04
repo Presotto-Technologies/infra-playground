@@ -21,13 +21,6 @@ spec:
         ports:
         - containerPort: 8080
         env:
-          - name: ELASTIC_SEARCH-HOST
-            value: "https://elasticsearch-master.monitoring"
-          - name: ELASTIC_SEARCH-PASS
-            valueFrom:
-              secretKeyRef:
-                name: elastic-search-password
-                key: password
           - name: REDIS-HOST
             value: "redis-cluster.db"
           - name: REDIS-PORT
