@@ -16,3 +16,14 @@
 # resource "random_password" "elastic-search-password" {
 #   length = 24
 # }
+
+#
+# Env values for argo config (apiGateway)
+#
+# - name: ELASTIC_SEARCH-HOST
+#   value: "https://elasticsearch-master.monitoring"
+# - name: ELASTIC_SEARCH-PASS
+#   valueFrom:
+#     secretKeyRef:
+#       name: elastic-search-password
+#       key: password
