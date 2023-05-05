@@ -16,7 +16,7 @@ spec:
         app: api-gateway
     spec:
       containers:
-      - image: robipresotto/api-gateway:0.0.4
+      - image: robipresotto/api-gateway:0.0.5
         name: api-gateway
         ports:
         - containerPort: 8080
