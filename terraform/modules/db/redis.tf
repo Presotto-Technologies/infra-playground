@@ -7,7 +7,7 @@ resource "helm_release" "redis-cluster" {
   
   values = [
     templatefile("${path.module}/values/redis-values.yaml", {
-      password = "${random_password.redis-cluster.result}"
+      password = var.redis-pass
     })
   ]
 
@@ -15,8 +15,4 @@ resource "helm_release" "redis-cluster" {
   #   helm_release.prometheus-crds
   # ]
 
-}
-
-resource "random_password" "redis-cluster" {
-  length = 12
 }

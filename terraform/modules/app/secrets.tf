@@ -11,21 +11,21 @@ resource "kubernetes_secret" "openai-token" {
 
 }
 
-# resource "kubernetes_secret" "redis-cluster-password" {
-#   metadata {
-#     name = "redis-cluster-password"
-#     namespace = "app"
-#   }
+resource "kubernetes_secret" "redis-cluster-password" {
+  metadata {
+    name = "redis-cluster-password"
+    namespace = "app"
+  }
 
-#   data = {
-#     password = random_password.redis-cluster.result
-#   }
+  data = {
+    password = random_password.redis-cluster.result
+  }
 
-#   depends_on = [
-#     helm_release.redis-cluster
-#   ]
+}
 
-# }
+resource "random_password" "redis-cluster" {
+  length = 12
+}
 
 # resource "kubernetes_secret" "elastic-search-password" {
 #   metadata {
