@@ -1,4 +1,4 @@
-resource "helm_release" "grafana" {
+resource "helm_release" "openTelemtry" {
   chart = "opentelemetry-helm"
   name = "opentelemtry"
   repository = " https://open-telemetry.github.io/opentelemetry-helm-charts"
