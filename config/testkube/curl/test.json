@@ -1,0 +1,7 @@
+{
+  "command": [
+    "curl",
+    "http://api-gateway.app:8080/health"
+  ],
+  "expected_status": "200"
+}
