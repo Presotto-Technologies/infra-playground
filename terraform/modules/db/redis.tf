@@ -7,19 +7,16 @@ resource "helm_release" "redis-cluster" {
   
   values = [
     templatefile("${path.module}/values/redis-values.yaml", {
-      certFilename = "${path.module}/values/certificates/ca.crt"
-      certKeyFilename = "${path.module}/values/certificates/ca.key"
-      certCAFilename = "${path.module}/values/certificates/ca.crt"
-      redisPassword = "${random_password.redis-cluster.result}"
+      password = "${random_password.redis-cluster.result}"
     })
   ]
 
-  depends_on = [
-    helm_release.prometheus-crds
-  ]
+  # depends_on = [
+  #   helm_release.prometheus-crds
+  # ]
 
 }
 
 resource "random_password" "redis-cluster" {
-  length = 24
+  length = 12
 }

@@ -25,7 +25,7 @@ module "storage" {
 module "testkube" {
   source = "./modules/testkube"
   s3_endpoint = module.storage.garage_endpoint
-  s3_secret = module.storage.garage_secret
+  s3_secretKey = module.storage.garage_secret
   s3_accessKey = module.storage.garage_accessKey
   depends_on = [module.storage]
 }
