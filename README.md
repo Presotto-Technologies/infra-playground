@@ -17,6 +17,7 @@ Made to run on minikube (not yet ready to run in cloud providers).
 To deploy the stack is required `terraform` and `minikube` or any other kubernetes cluster.
 ## Deployment
 ```
+terraform init
 terraform apply
 ```
 
