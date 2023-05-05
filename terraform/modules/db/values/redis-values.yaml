@@ -46,11 +46,11 @@ volumePermissions:
 
 cluster:
   init: true
-  nodes: 6
+  nodes: 2
   replicas: 1
   update:
     addNodes: false
-    currentNumberOfNodes: 6
+    currentNumberOfNodes: 2
     currentNumberOfReplicas: 1
     newExternalIPs: []
 
