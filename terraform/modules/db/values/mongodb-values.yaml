@@ -5,7 +5,8 @@ diagnosticMode:
 
 auth:
   enabled: true
-  rootUser: root
+  rootUser: ${username}
+  rootPassword: ${password}
 
 shards: 3
 

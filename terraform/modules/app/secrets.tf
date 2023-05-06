@@ -10,3 +10,16 @@ resource "kubernetes_secret" "openai-token" {
   }
 
 }
+
+resource "kubernetes_secret" "mongodb" {
+  metadata {
+    name = "mongodb"
+    namespace = "app"
+  }
+
+  data = {
+    username = var.mongodb-username
+    password = var.mongodb-password
+  }
+
+}

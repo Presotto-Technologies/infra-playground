@@ -7,7 +7,12 @@ resource "helm_release" "mongodb-sharded" {
   
   values = [
     templatefile("${path.module}/values/mongodb-values.yaml", {
-      // not defined yet
+      password = random_password.mongodb.result
+      username = var.username
     })
   ]
+}
+
+resource "random_password" "mongodb" {
+  length = 12
 }

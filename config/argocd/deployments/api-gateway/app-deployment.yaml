@@ -16,10 +16,22 @@ spec:
         app: api-gateway
     spec:
       containers:
-      - image: robipresotto/api-gateway:0.0.7
+      - image: robipresotto/api-gateway:0.0.8
         name: api-gateway
         ports:
         - containerPort: 8080
         env:
+          - name: MONGO_DB-PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mongodb
+                key: password
+          - name: MONGO_DB-USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: mongodb
+                key: username
           - name: MONGO_DB-HOST
-            value: "mongodb://mongodb-sharded.db:27017/db"
+            value: "mongodb://mongodb-sharded.db"
+          - name: MONGO_DB-PORT
+            value: 27017

@@ -1,5 +1,7 @@
 module "app" {
   source = "./modules/app"
+  mongodb-username = module.db.mongodb-username
+  mongodb-password = module.db.mongodb-password
 }
 
 module "ci-cd" {
