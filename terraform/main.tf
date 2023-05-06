@@ -8,7 +8,6 @@ module "ci-cd" {
 
 module "db" {
   source = "./modules/db"
-  redis-pass = module.app.redis-password
 }
 
 module "linkerd" {

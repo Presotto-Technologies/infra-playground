@@ -16,19 +16,10 @@ spec:
         app: api-gateway
     spec:
       containers:
-      - image: robipresotto/api-gateway:0.0.5
+      - image: robipresotto/api-gateway:0.0.6
         name: api-gateway
         ports:
         - containerPort: 8080
         env:
-          - name: REDIS-HOST
-            value: "redis-cluster.db"
-          - name: REDIS-PORT
-            value: "6379"
-          - name: REDIS-PASS
-            valueFrom:
-              secretKeyRef:
-                name: redis-cluster-password
-                key: password
           - name: MONGO_DB-HOST
             value: "mongodb://mongodb-sharded.db:27017/db"

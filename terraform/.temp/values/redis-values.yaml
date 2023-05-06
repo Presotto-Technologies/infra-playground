@@ -12,7 +12,7 @@ serviceAccount:
   create: true
 
 sentinel:
-  enabled: true
+  enabled: false
 
 rbac:
   create: true
