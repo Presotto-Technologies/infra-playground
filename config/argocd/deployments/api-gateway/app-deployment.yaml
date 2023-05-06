@@ -32,6 +32,6 @@ spec:
                 name: mongodb
                 key: username
           - name: MONGO_DB-HOST
-            value: "mongodb://mongodb-sharded.db"
+            value: "mongodb+srv://mongodb-sharded.db"
           - name: MONGO_DB-PORT
             value: "27017"
