@@ -11,13 +11,11 @@ shards: 3
 
 common:
   mongodbSystemLogVerbosity: 3
+  podAnnotations:
+    linkerd.io/inject: "enabled"
 
 volumePermissions:
   enabled: true
-
-service:
-  annotations: 
-    linkerd.io/inject: "enabled"
 
 configsvr:
   replicaCount: 1

@@ -4,9 +4,8 @@ garage:
 deployment:
   replicaCount: ${replicas}
 
-service:
-  annotations: 
-    linkerd.io/inject: "enabled"
+podAnnotations:
+  linkerd.io/inject: "enabled"
 
 monitoring:
   metrics:
