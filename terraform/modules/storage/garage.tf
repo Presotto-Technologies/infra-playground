@@ -6,7 +6,7 @@ resource "helm_release" "garage" {
   values = [
     templatefile("${path.module}/values/garage-values.yaml", {
       password = "${random_password.garage.result}"
-      replicas = 3
+      replicas = "3"
     })
   ]
 

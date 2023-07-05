@@ -1,8 +1,5 @@
 garage:
-  replicationMode: "2"
-
-deployment:
-  replicaCount: ${replicas}
+  replicationMode: ${replicas}
 
 podAnnotations:
   linkerd.io/inject: "enabled"
