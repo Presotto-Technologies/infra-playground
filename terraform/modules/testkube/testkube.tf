@@ -3,7 +3,7 @@ resource "helm_release" "testkube" {
   name = "testkube"
   repository = "https://kubeshop.github.io/helm-charts"
   namespace = "testkube"
-  version = "1.9.276"
+  version = "1.12.28"
 
   values = [
     templatefile("${path.module}/values/testkube-values.yaml", {

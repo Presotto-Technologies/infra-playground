@@ -1,5 +1,5 @@
 output "garage_endpoint" {
-  value = "${helm_release.garage.name}.${helm_release.garage.namespace}:3901"
+  value = "${helm_release.garage.name}.${helm_release.garage.namespace}:3900"
 }
 
 output "garage_secret" {
