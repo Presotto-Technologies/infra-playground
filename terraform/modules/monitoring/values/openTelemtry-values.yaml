@@ -1,0 +1,65 @@
+
+replicaCount: ${replicas}
+nameOverride: ""
+
+pdb:
+  create: false
+  minAvailable: 1
+  maxUnavailable: ""
+
+manager:
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 64Mi
+
+  env:
+    ENABLE_WEBHOOKS: "true"
+
+  serviceAccount:
+    create: true
+    annotations: {}
+
+  serviceMonitor:
+    enabled: true
+    metricsEndpoints:
+    - port: metrics
+
+  prometheusRule:
+    enabled: true
+
+  leaderElection:
+    enabled: true
+
+  verticalPodAutoscaler:
+    enabled: false
+
+    updatePolicy:
+      updateMode: Auto
+      minReplicas: 2
+  rolling: false
+
+kubeRBACProxy:
+  enabled: true
+  resources:
+    limits:
+      cpu: 500m
+      memory: 128Mi
+    requests:
+      cpu: 5m
+      memory: 64Mi
+
+admissionWebhooks:
+  create: true
+
+  certManager:
+    enabled: true
+
+role:
+  create: true
+
+clusterRole:
+  create: true

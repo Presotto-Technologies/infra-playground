@@ -1,0 +1,54 @@
+clusterDomain: cluster.local
+
+diagnosticMode:
+  enabled: true
+
+auth:
+  enabled: true
+  rootUser: ${username}
+  rootPassword: ${password}
+
+shards: 3
+
+common:
+  mongodbSystemLogVerbosity: 3
+  podAnnotations:
+    linkerd.io/inject: "enabled"
+
+volumePermissions:
+  enabled: true
+
+configsvr:
+  replicaCount: 1
+
+  serviceAccount:
+    create: true
+  
+  persistence:
+    enabled: true
+    mountPath: /bitnami/mongodb
+
+mongos:
+  replicaCount: 1
+  serviceAccount:
+    create: true
+  
+shardsvr:
+  dataNode:
+    replicaCount: 1
+
+  serviceAccount:
+    create: true
+
+  persistence:
+    enabled: true
+    mountPath: /bitnami/mongodb
+
+metrics:
+  enabled: true
+  useTLS: false
+  
+  podMonitor:
+    enabled: false
+    namespace: monitoring
+    interval: 30s

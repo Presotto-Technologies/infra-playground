@@ -1,0 +1,25 @@
+testkube-api:
+  slackToken: 
+  slackTemplate: 
+  slackConfig: 
+
+  minio:
+    enabled: false
+
+  storage:
+    endpoint: ${endpoint}
+    accessKeyId: ${accessKeyId}
+    accessKey: ${accessKey}
+
+  logs: 
+    storage: "mongodb"
+    bucket: "testkube-logs"
+    
+  service:
+    annotations: 
+      linkerd.io/inject: "enabled"
+
+  prometheus:
+    enabled: true
+
+telemetryEnabled: ${telemetry}

@@ -1,0 +1,16 @@
+garage:
+  replicationMode: ${replicas}
+
+podAnnotations:
+  linkerd.io/inject: "enabled"
+
+monitoring:
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      path: /metrics
+      namespace: monitoring
+      interval: 15s
+      scheme: http
+      scrapeTimeout: 10s
