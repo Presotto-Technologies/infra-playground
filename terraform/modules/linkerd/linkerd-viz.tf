@@ -3,7 +3,7 @@ resource "helm_release" "linkerd-viz" {
   chart = "linkerd-viz"
   repository = "https://helm.linkerd.io/stable"
   namespace = "linkerd"
-  version = "30.8.1"
+  version = "30.8.5"
 
   values = [
     templatefile("${path.module}/values/linkerd-viz-values.yaml", {

@@ -3,7 +3,7 @@ resource "helm_release" "linkerd-plane" {
   chart = "linkerd-control-plane"
   repository = "https://helm.linkerd.io/stable"
   namespace = "linkerd"
-  version = "1.12.1"
+  version = "1.12.5"
 
   values = [
     templatefile("${path.module}/values/linkerd-plane-values.yaml", {
