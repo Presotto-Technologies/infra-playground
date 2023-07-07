@@ -12,7 +12,7 @@ testkube-api:
     accessKey: ${accessKey}
 
   logs: 
-    storage: "mongodb"
+    storage: "minio"
     bucket: "testkube-logs"
     
   service:
