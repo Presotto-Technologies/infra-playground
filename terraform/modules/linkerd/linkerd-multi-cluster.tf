@@ -5,6 +5,12 @@ resource "helm_release" "linkerd-multi-cluster" {
   namespace  = "linkerd"
   version         = "30.7.5"
 
+  values = [
+    templatefile("${path.module}/values/linkerd-multi-cluster-values.yaml", {
+      loadBalancerIP = ""
+    })
+  ]
+
   depends_on = [
     helm_release.linkerd-plane
   ]

@@ -1,0 +1,5 @@
+gateway:
+  loadBalancerIP: ${loadBalancerIP}
+
+# enable it for high availability (replication across zones/hosts)
+enablePodAntiAffinity: false
