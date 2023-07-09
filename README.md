@@ -14,7 +14,10 @@ Made to run on minikube (not yet ready to run in cloud providers).
 9. App
 
 ## Getting started
-To deploy the stack is required `terraform` and `minikube` or any other kubernetes cluster.
+Make sure you have the following dependencies:
+- [terraform](https://terraform.io)
+- [minikube](https://minikube.sigs.k8s.io/docs/) (or any other k8)
+> generate the `linkerd` certificates following the [readme](./terraform/modules/linkerd/certificates/README.md)
 ## Deployment
 ```
 terraform init
