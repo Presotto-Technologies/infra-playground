@@ -1,4 +1,7 @@
-### Setup garage
+# Garage
+For docs and more info visit [garage-docs](https://garagehq.deuxfleurs.fr/documentation/quick-start/)
+
+### Setup
 The following commands are required to setup replication between zones and to setup the buckets and credentials to access it. Change the values accordingly.
 
 ```
@@ -36,4 +39,12 @@ kubectl exec -c garage --stdin --tty -n storage garage-0 -- ./garage bucket allo
   --key development
 ```
 
-Add ingress?
+### Multi-Cluster connection
+```
+kubectl exec -c garage --stdin --tty -n storage garage-0 -- ./garage node id
+kubectl exec -c garage --stdin --tty -n storage garage-0 -- ./garage node connect
+kubectl exec -c garage --stdin --tty -n storage garage-0 -- ./garage status
+```
+
+### S3 Client
+To access the buckets locally copy the `./config/.awsrc` to your home folder: `~/.awsrc` and replace the credentials and endpoint accordingly.
