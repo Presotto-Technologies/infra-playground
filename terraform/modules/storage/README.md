@@ -4,6 +4,9 @@ For docs and more info visit [garage-docs](https://garagehq.deuxfleurs.fr/docume
 ### Setup
 The following commands are required to setup replication between zones and to setup the buckets and credentials to access it. Change the values accordingly.
 
+### Layout
+The layout of the infra should be applied after the nodes are connected when using multi cluster setup.
+
 ```
 // apply storage layout
 kubectl exec -c garage --stdin --tty -n storage garage-0 -- ./garage status
