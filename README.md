@@ -5,7 +5,7 @@ Made to run on minikube (not yet ready to run in cloud providers).
 > The following stack will be deployed by terraform
 1. Linkerd
 2. Redis-Cluster
-3. MongoDB-Shaded
+3. MongoDB-Sharded
 4. MinIO/Garage
 5. Grafana (+ prometheus)
 6. OpenTelemetry
